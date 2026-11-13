@@ -11,8 +11,8 @@ pipeline {
 
         stage('Static Verification') {
             steps {
-                echo 'Checking Maven project layout rules...'
-                bat 'mvn validate'
+               def mvnHome = tool name: 'Maven-3.10', type: 'maven'
+               bat "\"${mvnHome}\\bin\\mvn.cmd\" validate"
             }
         }
 
